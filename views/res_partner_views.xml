@@ -1,0 +1,29 @@
+<odoo>
+    <record id="view_res_partner_form_chasqui" model="ir.ui.view">
+        <field name="name">res.partner.chasqui.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+		<field name="arch" type="xml">
+			<field name="email" position="after">
+				 <field name="external_partner_id" readonly="1"/>
+			</field>
+        </field>
+    </record>
+	
+	<record id="view_res_partner_form_chasqui_sync" model="ir.ui.view">
+        <field name="name">res.partner.chasqui.form_sync</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page string="Chasqui Sync" name="chasqui_sync">
+                    <group>
+                        <field name="sync_id" readonly="1"/>
+                        <field name="sync_hash" readonly="1"/>
+                        <field name="sync_timestamp" readonly="1"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
