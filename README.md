@@ -27,8 +27,13 @@ This module integrates Odoo with Chasqui, an online sales platform, allowing for
 
 ## Usage
 
-- **Product Synchronization**: To synchronize a product with Chasqui, ensure the `external_sale_ok` flag is set to True on the product form, and specify the `external_product_id`.
-- **Partner Synchronization**: To synchronize a partner with Chasqui, fill in the `external_partner_id` field on the partner form.
+- **Product Synchronization:** The `external_sale_ok` and `external_product_id` fields are added to the `product.template` model. The `external_sale_ok` field indicates whether a product can be sold on Chasqui, while the `external_product_id` is used to identify the product on the Chasqui platform.
+
+- **Partner Synchronization:** The `external_partner_id` field is added to the `res.partner` model. This field is used to manage partner synchronization by uniquely identifying partners across Odoo and Chasqui.
+
+- **Automated Synchronization:** Fields `sync_id`, `sync_hash`, and `sync_timestamp` are included in both `product` and `partner` models to facilitate the synchronization mechanism, ensuring that product and partner data are kept up to date between Odoo and Chasqui.
+
+
 
 ## Contributing
 
